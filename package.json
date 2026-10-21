@@ -1,0 +1,41 @@
+{
+  "name": "@firmeasy/mcp-enterprise",
+  "version": "1.0.0",
+  "description": "Conecta tu IA (Claude, Cursor, Codex, Gemini CLI...) a FirmEasy Enterprise: firma y valida PDFs con el certificado de agente automatizado de tu empresa.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bin": {
+    "firmeasy-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/api.js",
+    "dist/archivos.js"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "firmeasy",
+    "firma digital",
+    "pades",
+    "claude",
+    "agente automatizado"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "comprobar": "npm run build && node dist/comprobar.js",
+    "empaquetar": "npm run build && node scripts/empaquetar.mjs",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

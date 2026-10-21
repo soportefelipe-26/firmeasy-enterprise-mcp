@@ -1,0 +1,66 @@
+{
+  "manifest_version": "0.3",
+  "name": "firmeasy-enterprise",
+  "display_name": "FirmEasy Enterprise",
+  "version": "1.0.0",
+  "description": "Firma y valida PDFs con el certificado de agente automatizado de tu empresa en FirmEasy.",
+  "long_description": "Dile a Claude «firma este documento» y lo firma con el certificado de agente automatizado de tu empresa, sin que intervenga nadie. También firma lotes de hasta 20 PDF, valida PDFs firmados y gestiona las imágenes de la firma visual. Los documentos se leen y se guardan en tu equipo; tus credenciales no salen de él.",
+  "author": {
+    "name": "FirmEasy",
+    "url": "https://firmeasy.legal"
+  },
+  "homepage": "https://firmeasy.legal",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "FIRMEASY_AMBIENTE": "${user_config.ambiente}",
+        "FIRMEASY_CLIENT_ID": "${user_config.client_id}",
+        "FIRMEASY_CLIENT_SECRET": "${user_config.client_secret}"
+      }
+    }
+  },
+  "user_config": {
+    "client_id": {
+      "type": "string",
+      "title": "Client ID",
+      "description": "Está en el panel de FirmEasy: Mi Empresa → Configurar → Credenciales de integración. Empieza por fe_.",
+      "required": true
+    },
+    "client_secret": {
+      "type": "string",
+      "title": "Client Secret",
+      "description": "En el mismo sitio, botón «Generar». Se muestra una sola vez: si lo perdiste, genera otro.",
+      "sensitive": true,
+      "required": true
+    },
+    "ambiente": {
+      "type": "string",
+      "title": "Ambiente",
+      "description": "Escribe «pruebas» o «produccion». Las credenciales de un ambiente no valen en el otro. Empieza con pruebas: en producción cada firma se cobra.",
+      "default": "pruebas",
+      "required": true
+    }
+  },
+  "tools": [
+    { "name": "certificados", "description": "Con qué certificados puede firmar la empresa. No gasta firmas." },
+    { "name": "configuracion", "description": "Qué servicios tiene activos la empresa y su configuración de firma." },
+    { "name": "firmar", "description": "Firma un PDF del disco y guarda el firmado al lado del original." },
+    { "name": "consultar_firma", "description": "Estado de una firma y el PDF firmado, si terminó." },
+    { "name": "firmar_lote", "description": "Firma de 1 a 20 PDF en una llamada." },
+    { "name": "consultar_lote", "description": "Cómo va un lote y el zip con los firmados." },
+    { "name": "validar", "description": "Comprueba las firmas de un PDF. No gasta firmas." },
+    { "name": "consultar_validacion", "description": "Resultado de una validación que no terminó a tiempo." },
+    { "name": "listar_imagenes", "description": "Imágenes registradas para la firma visual." },
+    { "name": "registrar_imagen", "description": "Sube un logo o una rúbrica para la firma visual." },
+    { "name": "borrar_imagen", "description": "Quita una imagen de firma visual." }
+  ],
+  "keywords": ["firma digital", "pades", "pdf", "firmeasy"],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=20.0.0" }
+  }
+}
