@@ -32,10 +32,10 @@ La IA firma con el **certificado de agente automatizado de tu empresa**, sin que
 ### Claude Code
 
 ```bash
-claude mcp add firmeasy --env FIRMEASY_AMBIENTE=pruebas --env FIRMEASY_CLIENT_ID=fe_... --env FIRMEASY_CLIENT_SECRET=cs_live_... -- npx -y @firmeasy/mcp-enterprise
+claude mcp add firmeasy --env FIRMEASY_AMBIENTE=pruebas --env FIRMEASY_CLIENT_ID=fe_... --env FIRMEASY_CLIENT_SECRET=cs_live_... -- npx -y github:soportefelipe-26/firmeasy-enterprise-mcp
 ```
 
-En Windows (sin WSL), cambia el final por `-- cmd /c npx -y @firmeasy/mcp-enterprise`.
+En Windows (sin WSL), cambia el final por `-- cmd /c npx -y github:soportefelipe-26/firmeasy-enterprise-mcp`.
 
 ### Cursor — `.cursor/mcp.json` (o `~/.cursor/mcp.json` para todos tus proyectos)
 
@@ -44,7 +44,7 @@ En Windows (sin WSL), cambia el final por `-- cmd /c npx -y @firmeasy/mcp-enterp
   "mcpServers": {
     "firmeasy": {
       "command": "npx",
-      "args": ["-y", "@firmeasy/mcp-enterprise"],
+      "args": ["-y", "github:soportefelipe-26/firmeasy-enterprise-mcp"],
       "env": {
         "FIRMEASY_AMBIENTE": "pruebas",
         "FIRMEASY_CLIENT_ID": "fe_...",
@@ -60,7 +60,7 @@ En Windows (sin WSL), cambia el final por `-- cmd /c npx -y @firmeasy/mcp-enterp
 ```toml
 [mcp_servers.firmeasy]
 command = "npx"
-args = ["-y", "@firmeasy/mcp-enterprise"]
+args = ["-y", "github:soportefelipe-26/firmeasy-enterprise-mcp"]
 
 [mcp_servers.firmeasy.env]
 FIRMEASY_AMBIENTE = "pruebas"
@@ -75,7 +75,7 @@ FIRMEASY_CLIENT_SECRET = "cs_live_..."
   "mcpServers": {
     "firmeasy": {
       "command": "npx",
-      "args": ["-y", "@firmeasy/mcp-enterprise"],
+      "args": ["-y", "github:soportefelipe-26/firmeasy-enterprise-mcp"],
       "env": {
         "FIRMEASY_AMBIENTE": "pruebas",
         "FIRMEASY_CLIENT_ID": "fe_...",
@@ -94,7 +94,7 @@ FIRMEASY_CLIENT_SECRET = "cs_live_..."
     "firmeasy": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@firmeasy/mcp-enterprise"],
+      "args": ["-y", "github:soportefelipe-26/firmeasy-enterprise-mcp"],
       "env": {
         "FIRMEASY_AMBIENTE": "pruebas",
         "FIRMEASY_CLIENT_ID": "fe_...",
@@ -105,7 +105,7 @@ FIRMEASY_CLIENT_SECRET = "cs_live_..."
 }
 ```
 
-Después de cambiar la configuración, **reinicia el cliente**: ninguno la relee en caliente. Las opciones con `npx` necesitan **Node 20 o superior**; Claude Desktop trae el suyo.
+Después de cambiar la configuración, **reinicia el cliente**: ninguno la relee en caliente. Las opciones con `npx` necesitan **Node 20 o superior** y **Git**: la primera vez descargan y preparan el servidor desde este repositorio (tarda un minuto), las siguientes ya arrancan al momento. Claude Desktop no necesita nada de esto.
 
 > **ChatGPT (web) y la app de Gemini** solo se conectan a servidores alojados en internet, no a uno que corre en tu equipo. Por ahora no son compatibles.
 
@@ -134,7 +134,7 @@ Puedes pedir el **nivel** (*«con sello de tiempo»* = `PAdES-T`, *«para archiv
 | «Quota exceeded» (403) | Se acabaron las firmas del periodo. |
 | «Agent signing disabled» (403) | El servicio de firma está apagado para tu empresa. |
 | «No certificate» / «Certificate expired» (412) | Tu empresa no tiene certificado, o venció. |
-| La IA no ve las herramientas | Revisa la configuración y reinicia el cliente. Prueba `npx -y @firmeasy/mcp-enterprise` en una terminal: si falta algo, lo dice. |
+| La IA no ve las herramientas | Revisa la configuración y reinicia el cliente. Prueba `npx -y github:soportefelipe-26/firmeasy-enterprise-mcp` en una terminal: si falta algo, lo dice. |
 
 ## Para desarrolladores
 
