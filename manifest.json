@@ -10,12 +10,19 @@
     "url": "https://firmeasy.legal"
   },
   "homepage": "https://firmeasy.legal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soportefelipe-26/firmeasy-enterprise-mcp"
+  },
+  "support": "https://github.com/soportefelipe-26/firmeasy-enterprise-mcp/issues",
   "server": {
     "type": "node",
     "entry_point": "dist/index.js",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/dist/index.js"],
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
       "env": {
         "FIRMEASY_AMBIENTE": "${user_config.ambiente}",
         "FIRMEASY_CLIENT_ID": "${user_config.client_id}",
@@ -46,21 +53,65 @@
     }
   },
   "tools": [
-    { "name": "certificados", "description": "Con qué certificados puede firmar la empresa. No gasta firmas." },
-    { "name": "configuracion", "description": "Qué servicios tiene activos la empresa y su configuración de firma." },
-    { "name": "firmar", "description": "Firma un PDF del disco y guarda el firmado al lado del original." },
-    { "name": "consultar_firma", "description": "Estado de una firma y el PDF firmado, si terminó." },
-    { "name": "firmar_lote", "description": "Firma de 1 a 20 PDF en una llamada." },
-    { "name": "consultar_lote", "description": "Cómo va un lote y el zip con los firmados." },
-    { "name": "validar", "description": "Comprueba las firmas de un PDF. No gasta firmas." },
-    { "name": "consultar_validacion", "description": "Resultado de una validación que no terminó a tiempo." },
-    { "name": "listar_imagenes", "description": "Imágenes registradas para la firma visual." },
-    { "name": "registrar_imagen", "description": "Sube un logo o una rúbrica para la firma visual." },
-    { "name": "borrar_imagen", "description": "Quita una imagen de firma visual." }
+    {
+      "name": "certificados",
+      "description": "Con qué certificados puede firmar la empresa. No gasta firmas."
+    },
+    {
+      "name": "configuracion",
+      "description": "Qué servicios tiene activos la empresa y su configuración de firma."
+    },
+    {
+      "name": "firmar",
+      "description": "Firma un PDF del disco y guarda el firmado al lado del original."
+    },
+    {
+      "name": "consultar_firma",
+      "description": "Estado de una firma y el PDF firmado, si terminó."
+    },
+    {
+      "name": "firmar_lote",
+      "description": "Firma de 1 a 20 PDF en una llamada."
+    },
+    {
+      "name": "consultar_lote",
+      "description": "Cómo va un lote y el zip con los firmados."
+    },
+    {
+      "name": "validar",
+      "description": "Comprueba las firmas de un PDF. No gasta firmas."
+    },
+    {
+      "name": "consultar_validacion",
+      "description": "Resultado de una validación que no terminó a tiempo."
+    },
+    {
+      "name": "listar_imagenes",
+      "description": "Imágenes registradas para la firma visual."
+    },
+    {
+      "name": "registrar_imagen",
+      "description": "Sube un logo o una rúbrica para la firma visual."
+    },
+    {
+      "name": "borrar_imagen",
+      "description": "Quita una imagen de firma visual."
+    }
   ],
-  "keywords": ["firma digital", "pades", "pdf", "firmeasy"],
+  "keywords": [
+    "firma digital",
+    "pades",
+    "pdf",
+    "firmeasy"
+  ],
   "compatibility": {
-    "platforms": ["darwin", "win32", "linux"],
-    "runtimes": { "node": ">=20.0.0" }
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
   }
 }

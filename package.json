@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Conecta tu IA (Claude, Cursor, Codex, Gemini CLI...) a FirmEasy Enterprise: firma y valida PDFs con el certificado de agente automatizado de tu empresa.",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soportefelipe-26/firmeasy-enterprise-mcp.git"
+  },
+  "homepage": "https://github.com/soportefelipe-26/firmeasy-enterprise-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/soportefelipe-26/firmeasy-enterprise-mcp/issues"
+  },
   "type": "module",
   "bin": {
     "firmeasy-mcp": "dist/index.js"
